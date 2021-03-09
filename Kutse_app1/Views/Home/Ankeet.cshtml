@@ -1,0 +1,23 @@
+﻿@model Kutse_app1.Models.Guest
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <p> Sisesta nimi: @Html.TextBoxFor(x => x.Name)</p>
+    <p> Sisesta email: @Html.TextBoxFor(x => x.Email)</p>
+    <p> Sisesta tel: @Html.TextBoxFor(x => x.Phone)</p>
+    <p>
+        Sinu valik:
+        @Html.DropDownListFor(x=> x.WillAttend,
+       new[]
+       {
+           new SelectListItem() {Text="Tule kindlasti!", Value=bool.TrueString},
+           new SelectListItem() {Text="Kahj0uks ei saa tulla!", Value=bool.FalseString}
+           
+
+       }, "Vali siit")
+       )
+    </p>
+    <input type="submit" value="Saada vastus" />
+}
+
+
